@@ -8,7 +8,7 @@ import Data from "../data.json";
 
 const Chart = () => {
   const [data] = useState({
-    amount: 227.94,
+    amount: Data.reduce((acc, curr) => acc + curr.amount, 0),
     difference: 0,
     sign: "-",
   });
