@@ -1,13 +1,145 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --red: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+  --dark-brown: hsl(25, 47%, 15%);
+  --medium-brown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --very-pale-orange: hsl(33, 100%, 98%);
+  --width: 100rem;
+}
+
+@media screen and (min-width: 100rem) {
+  :root {
+    --width: 140rem;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--cream);
+}
+
+#root {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+main {
+  width: fit-content;
+}
+
+/* Balance */
+.balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: var(--red);
+}
+
+.balance__wrapper {
+  color: var(--cream);
+}
+
+/* Chart Container */
+.chart {
+  background-color: var(--very-pale-orange);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.chart__container {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.5);
+  height: 20rem;
+}
+
+/* Spending */
+.spending {
+  margin-bottom: 2rem;
+}
+
+.spending__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Chart footer */
+.chart__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.chart__footer-total__container,
+.chart__footer-sign__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.chart__footer-sign__container {
+  align-items: flex-end;
+}
+
+.chart__footer-total__title,
+.chart__footer-sign__title,
+.bar__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.chart__footer-sign__difference {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Bar */
+.bar__container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  justify-self: flex-end;
+}
+
+.bar__amount {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: var(--cream);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin-bottom: 1rem;
+}
+
+.bar__amount.show {
+  opacity: 1;
+}
+
+.bar__line {
+  background-color: var(--red);
+  height: 0;
+  width: 100%;
+  transition: height 0.3s ease-in-out;
+  transform-origin: start;
+  border-radius: 0.5rem;
+  max-height: 10rem;
 }
